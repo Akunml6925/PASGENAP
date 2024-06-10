@@ -17,45 +17,49 @@
   <form class="mb-3">
     <div class="mb-3">
       <label class="form-label">tanggal</label>
-      <input type="text" class="form-control" id="input-nama">
+      <input type="date" class="form-control" id="input-nama">
     </div>
     <div class="mb-3">
       <label class="form-label">nis</label>
-      <input type="text" class="form-control" id="input-harga">
+      <input type="teks" class="form-control" id="input-harga">
     </div>
     <div class="mb-3">
       <label class="form-label">nama</label>
-      <input type="text" class="form-control" id="input-stok">
+      <input type="teks" class="form-control" id="input-stok">
     </div>
     <button type="submit" class="btn btn-primary" id="tombol-tambah">coba</button>
     <img src="loader.gif" style="width: 2em; display: none" id="loader">
   </form>
     <div class="mb-3">
       <label class="form-label">alamat</label>
-      <input type="text" class="form-control" id="input-stok">
+      <input type="teks" class="form-control" id="input-stok">
     </div>
      <div class="mb-3">
       <label class="form-label">notlpon</label>
-      <input type="text" class="form-control" id="input-stok">
+      <input type="teks" class="form-control" id="input-stok">
     </div>
       <div class="mb-3">
       <label class="form-label">kelas</label>
-      <input type="text" class="form-control" id="input-stok">
+      <input type="teks" class="form-control" id="input-stok">
     </div>
           <div class="mb-3">
       <label class="form-label">keterangan</label>
-      <input type="text" class="form-control" id="input-stok">
+      <input type="teks" class="form-control" id="input-stok">
     </div>
 
   <a href="index.html">absen</a>
   
   <script type="module">
-    import { tambahProduk } from './main.js';
+    import { tambahabsen } from './main.js';
     
-    let tombolTambah = document.getElementById('tombol-tambah');
-    let elemenNamaProduk = document.getElementById('input-nama');
-    let elemenharga = document.getElementById('input-harga');
-    let elemenStok = document.getElementById('input-stok');
+    let tomboltambah = document.getElementById('tombol-tambah');
+    let elementanggal = document.getElementById('input-tanggal');
+    let elemennis = document.getElementById('input-nis');
+    let elemennama = document.getElementById('input-nama');
+    let elemenalamat = document.getElementById('input-alamat');
+    let elemennotlpon = document.getElementById('input-notlpon')
+    let elemenkelas = document.getElementById('input-kelas')
+    let elemenketerangan = document.getElementById('input-keterangan')
     let loader = document.getElementById('loader');
     
     tombolTambah.addEventListener('click', async function (e) {
@@ -63,7 +67,7 @@
       tombolTambah.setAttribute('disabled', 'disabled');
       loader.style.display = "block";
       
-      await tambahProduk(elemennamaProduk.value, elemenharga.value, elemenStok.value);
+      await tambahabsen(elementanggal.value, elemennis.value, elemennama.value,elemenalamat.value,elemennotlpon.value,elemenkelas.value,elemenketerangan.value.);
       window.location.href = 'index.html';
     });
   </script>

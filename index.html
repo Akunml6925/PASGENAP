@@ -14,7 +14,7 @@
 <body>
   <h1>absen kelas</h1>
   
-  <table class="table" id="daftar-produk">
+  <table class="table" id="daftar-absen">
   <thead>
     <tr>
       <th scope="col">tanggal</th>
@@ -32,13 +32,13 @@
 
 <img src="loader.gif" style="width: 1.8em; display: block" id="loader">
 
-<a href="from-absen.html">keterangan kelas</a>
+<a href="form-AbsensiSiswa.html">keterangan kelas</a>
 
 <script type="module">
   import { ambilDaftarabsen, formatAngka,hapusabsen } from './main.js';
   
   $(document).ready(async function(){
-    let elemenDaftar = $("#daftar-produk > tbody");
+    let elemenDaftar = $("#daftar-absen > tbody");
     let daftarabsen = await ambilDaftarabsen();
     let nomor = 1;
     
