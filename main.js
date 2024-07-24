@@ -14,20 +14,21 @@ import {
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA-wvBGzlYI9NHjVZBq7wbUHtEWrN3AFI8",
-  authDomain: "pasarbarokah-56d6c.firebaseapp.com",
-  projectId: "pasarbarokah-56d6c",
-  storageBucket: "pasarbarokah-56d6c.appspot.com",
-  messagingSenderId: "316348641371",
-  appId: "1:316348641371:web:5ad38a561e7d73744acf7e"
+  apiKey: "AIzaSyB8g6kCR8laDnH1YCF9cYVy10lF1y7s2i0",
+  authDomain: "bakwan-jagung.firebaseapp.com",
+  projectId: "bakwan-jagung",
+  storageBucket: "bakwan-jagung.appspot.com",
+  messagingSenderId: "710653450064",
+  appId: "1:710653450064:web:5cbf9ff4240922b03ffe55",
+  measurementId: "G-VBHD7G08PJ"
 };
 
 // Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function ambilDaftarabsen() {
-  const refDokumen = collection(db, "absen");
+export async function ambilDaftarAbsensi() {
+  const refDokumen = collection(db, "absensi");
   const kueri = query(refDokumen, orderBy("nama"));
   const cuplikanKueri = await getDocs(kueri);
 
@@ -35,13 +36,14 @@ export async function ambilDaftarabsen() {
   cuplikanKueri.forEach((dok) => {
     hasil.push({
       id: dok.id,
-      tanggal:dok.data().tanggal,
-      nis:dok.data().nis,
-      nama:dok.data().nama,
-      alamat:dok.data().alamat, 
-      notlpon:dok.data().notlpon,
-      kelas:dok.data().kelas,
-      keterangan:dok.data().keterangan, 
+      tanggal: dok.data().tanggal,
+      nis: dok.data().nis,
+      nama: dok.data().nama,
+      alamat: dok.data().alamat,
+      noTlpn: dok.data().noTlpn,
+      kelas: dok.data().kelas,
+      keterangan: dok.data().keterangan,
+
     });
   });
 
@@ -54,41 +56,41 @@ export function formatAngka(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export async function tambahabsen(tanggal,nis,nama,alamat,notlpon,kelas,keterangan,) {
+export async function tambahAbsensi(tanggal, nis, nama, alamat, noTlpn, kelas, keterangan) {
   try {
-    const dokRef = await addDoc(collection(db, 'pembeli'), {
-      tanggal:tanggal,
-      nis:nis,
-      nama:nama,
-      alamat:alamat,
-      notlpon:notlpon,
-      kelas:kelas,
-      keterangan:keterangan,
+    const dokRef = await addDoc(collection(db, 'absensi'), {
+      tanggal: tanggal,
+      nis: nis,
+      nama: nama,
+      alamat: alamat,
+      noTlpn: noTlpn,
+      kelas: kelas,
+      keterangan: keterangan
     });
-    console.log('berhasil menembah absen' + dokRef.id);
+    console.log('berhasil menembah ' + dokRef.id);
   } catch (e) {
-    console.log('gagal menambah absen ' + e);
+    console.log('gagal menambah ' + e);
   }
 }
 
-export async function hapusabsen(docId) {
-  await deleteDoc(doc(db, "pembeli", docId));
+export async function hapusAbsensi(docId) {
+  await deleteDoc(doc(db, "absensi", docId));
 }
 
-export async function ubahabsen(docId, tanggal,nis,nama,alamat,notlpon,kelas,keterangan,) {
-  await updateDoc(doc(db, "absen", docId), {
+export async function ubahAbsensi(docId, tanggal, nis, nama, alamat, noTlpn, kelas, keterangan) {
+  await updateDoc(doc(db, "absensi", docId), {
     tanggal: tanggal,
-    nis:nis,
-    nama:nama,
-    alamat:alamat,
-    notlpon:notlpon,
-    kelas:kelas,
-    keterangan:keterangan,
+    nis: nis,
+    nama: nama,
+    alamat: alamat,
+    noTlpn: noTlpn,
+    kelas: kelas,
+    keterangan: keterangan
   });
 }
 
-export async function ambilabsen(docId) {
-  const docRef = await doc(db, "absen", docId);
+export async function ambilAbsensi(docId) {
+  const docRef = await doc(db, "absensi", docId);
   const docSnap = await getDoc(docRef);
 
   return await docSnap.data();

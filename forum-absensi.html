@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Absensi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="m-3">
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ABSENCE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavWhiteDropdown" aria-controls="navbarNavWhiteDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavWhiteDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <button class="btn btn-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Menu
+            </button>
+            <ul class="dropdown-menu dropdown-menu-white">
+              <li><a class="dropdown-item" href="index.html">Lihat Data</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <form class="mb-3">
+    <div class="mb-3">
+      <label class="form-label">Tanggal</label>
+      <input type="date" class="form-control" id="input-tanggal">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Nis</label>
+      <input type="text" class="form-control" id="input-nis">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Nama</label>
+      <input type="text" class="form-control" id="input-nama">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Alamat</label>
+      <input type="text" class="form-control" id="input-alamat">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">No.tlpn</label>
+      <input type="text" class="form-control" id="input-noTlpn">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Kelas</label>
+      <input type="text" class="form-control" id="input-kelas">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Keterangan</label>
+      <input type="text" class="form-control" id="input-keterangan">
+    </div>
+    <div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
+    </div>
+  </form>
+
+  <script type="module">
+    import { tambahAbsensi } from './main.js';
+
+    let tombolTambah = document.getElementById('tombol-tambah');
+    let elemenTanggal = document.getElementById('input-tanggal');
+    let elemenNis = document.getElementById('input-nis');
+    let elemenNama = document.getElementById('input-nama');
+    let elemenAlamat = document.getElementById('input-alamat');
+    let elemenNoTlpn = document.getElementById('input-noTlpn');
+    let elemenKelas = document.getElementById('input-kelas');
+    let elemenKeterangan = document.getElementById('input-keterangan')
+
+    tombolTambah.addEventListener('click', async function(e) {
+      e.preventDefault();
+      await tambahAbsensi(elemenTanggal.value, elemenNis.value, elemenNama.value, elemenAlamat.value, elemenNoTlpn.value, elemenKelas.value, elemenKeterangan.value);
+      window.location.href = 'index.html'
+    })
+  </script>
+
+</body>
+
+</html>
