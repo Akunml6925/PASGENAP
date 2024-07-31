@@ -14,13 +14,13 @@ import {
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyB8g6kCR8laDnH1YCF9cYVy10lF1y7s2i0",
-  authDomain: "bakwan-jagung.firebaseapp.com",
-  projectId: "bakwan-jagung",
-  storageBucket: "bakwan-jagung.appspot.com",
-  messagingSenderId: "710653450064",
-  appId: "1:710653450064:web:5cbf9ff4240922b03ffe55",
-  measurementId: "G-VBHD7G08PJ"
+  apiKey: "AIzaSyA-wvBGzlYI9NHjVZBq7wbUHtEWrN3AFI8",
+  authDomain: "pasarbarokah-56d6c.firebaseapp.com",
+  projectId: "pasarbarokah-56d6c",
+  storageBucket: "pasarbarokah-56d6c.appspot.com",
+  messagingSenderId: "316348641371",
+  appId: "1:316348641371:web:5ad38a561e7d73744acf7e",
+  measurementId: "G-NKKFY4X1ZC"
 };
 
 // Inisialisasi Firebase
